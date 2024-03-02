@@ -49,7 +49,14 @@ myForm.addEventListener("submit", function (e) {
                         booksPerMonth[month] += 1;
                     }
                 });
-                console.log(booksPerMonth);
+                let maxMonth = 0;
+                for(let i = 0; i < 12; i++){
+                    if(booksPerMonth[i] > booksPerMonth[maxMonth]){
+                        maxMonth = i;
+                    }
+                }
+
+                topMonth.textContent = "Top Month: " + months[maxMonth];
     };
     
     // Read the uploaded file as text
