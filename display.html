@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display Information</title>
+</head>
+<body>
+    <!-- to display the avg rating -->
+    <h1 id="averageRatingHeading">Average Rating: </h1>
+    
+    <script>
+        // get url parameter
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        };
+
+        // Get data values from url parameters
+        var averageRating = getUrlParameter('averageRating');
+        var year = getUrlParameter('selectedYear');
+        var maxMonth = getUrlParameter('topMonth');
+        var numBooks = getUrlParameter('numBooks');
+        var topAuthor = getUrlParameter('topAuthor');
+        //check that this worked by console log
+        console.log(year);
+        console.log("Average rating: ", averageRating);
+        console.log(maxMonth);
+        console.log(numBooks);
+        console.log(topAuthor);
+
+        // Display the average rating in the heading
+        var averageRatingHeading = document.getElementById('averageRatingHeading');
+        averageRatingHeading.textContent = "Average Rating: " + averageRating;
+    </script>
+</body>
+</html>
+

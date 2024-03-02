@@ -34,6 +34,8 @@ myForm.addEventListener("submit", function (e) {
         //set this value to html element
         averageRatingElement.textContent = "Average Rating: " + averageRating.toFixed(2);
         console.log(averageRating);
+
+       // Redirect to display.html after processing, including user metrics
         console.log(selectedYear);
 
         //fill array for books read in each month
@@ -82,7 +84,6 @@ myForm.addEventListener("submit", function (e) {
         numBooksElement.textContent = "Num Books Read: " + numBooks;
 
         // author processing
-
         let top_author = undefined;
         for(var a in authors) {
             if(top_author == undefined){
@@ -96,6 +97,8 @@ myForm.addEventListener("submit", function (e) {
         if(authors[top_author] > 1){
             topAuthor.textContent = "Top Author: " + top_author;
         }
+
+        window.location.href = "display.html?selectedYear=" + selectedYear + "&averageRating=" + averageRating.toFixed(2) + "&topMonth=" + months[maxMonth] + "&numBooks=" + numBooks + "&topAuthor=" + top_author;
 
     };
     
