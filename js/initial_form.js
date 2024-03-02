@@ -81,13 +81,11 @@ myForm.addEventListener("submit", function (e) {
         topMonth.textContent = "Top Month: " + months[maxMonth];
 
         // top books read
-        console.log(popBooks);
         let books = "";
         for(let i = 0; i < popBooks.length; i++){
             books += popBooks[i];
             books += "\n";
         }
-        console.log(books);
         topBooks.textContent = "Top Books: " + books;
 
         // now print out total books read
