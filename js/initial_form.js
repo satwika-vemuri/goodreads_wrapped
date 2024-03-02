@@ -4,6 +4,7 @@ const myForm = document.getElementById("myForm");
 const csvFile = document.getElementById("csvFile");
 //h1 averageRating element
 const averageRatingElement = document.getElementById("averageRating"); // Reference to the heading element
+const numBooksElement = document.getElementById("numBooks");
     
 myForm.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -57,6 +58,16 @@ myForm.addEventListener("submit", function (e) {
                 }
 
                 topMonth.textContent = "Top Month: " + months[maxMonth];
+
+                // now print out total books read
+                let numBooks = 0;
+                data.forEach(function(d) {
+                    date = d["Date Read"];
+                    if(date.substring(0, 4) == selectedYear){
+                        numBooks++;
+                    }
+                });
+                numBooksElement.textContent = "Num Books Read: " + numBooks;
     };
     
     // Read the uploaded file as text
