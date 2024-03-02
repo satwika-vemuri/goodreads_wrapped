@@ -18,50 +18,53 @@ myForm.addEventListener("submit", function (e) {
         // Parse CSV data using D3.js
          const data = d3.csvParse(text);
 
-        // Here you can analyze the data and create visualizations
-        // For example, let's log the data to the console
+        //extract all non-zero ratings
         const ratings = data.map(d => parseFloat(d["My Rating"]));
-                const ratings_zeroless = [];
-                for(let i = 0; i < ratings.length; i++)
-                {
-                    if(ratings[i] != 0)
-                    {
-                        ratings_zeroless.unshift(ratings[i]);
-                    }
-                }
+        const ratings_zeroless = [];
+        for(let i = 0; i < ratings.length; i++)
+        {
+            if(ratings[i] != 0)
+            {
+                ratings_zeroless.unshift(ratings[i]);
+            }
+        }
+        //take average of these ratings
         const averageRating = d3.mean(ratings_zeroless);
+        //set this value to html element
         averageRatingElement.textContent = "Average Rating: " + averageRating.toFixed(2);
         console.log(averageRating);
         console.log(selectedYear);
-        // Now you can use 'data' to create your visualizations
-        // For example, you can use D3.js to create charts, graphs, etc.
 
-                let booksPerMonth = [12]; 
-                let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-                for(let i = 0; i < 12; i++){
-                    booksPerMonth[i] = 0;
-                }
-        
-                data.forEach(function(d) {
-                    date = d["Date Read"];
-                    if(date.substring(0, 4) == selectedYear){
-                        let month= +(date.substring(5,7)) - 1;
-                        booksPerMonth[month] += 1;
-                    }
-                });
-                let maxMonth = 0;
-                for(let i = 0; i < 12; i++){
-                    if(booksPerMonth[i] > booksPerMonth[maxMonth]){
-                        maxMonth = i;
-                    }
-                }
+        //fill array for books read in each month
+        let booksPerMonth = [12]; 
+        let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        for(let i = 0; i < 12; i++){
+            booksPerMonth[i] = 0;
+        }
+        //get values of books read for each month in the year
+        data.forEach(function(d) {
+        date = d["Date Read"];
+        if(date.substring(0, 4) == selectedYear){
+            let month= +(date.substring(5,7)) - 1;
+            booksPerMonth[month] += 1;
+        }
+        });
+        //determine month with max books read
+        let maxMonth = 0;
+        for(let i = 0; i < 12; i++){
+            if(booksPerMonth[i] > booksPerMonth[maxMonth]){
+                maxMonth = i;
+            }
+        }
+       //set this to value of html element
+        topMonth.textContent = "Top Month: " + months[maxMonth];
 
-                topMonth.textContent = "Top Month: " + months[maxMonth];
     };
     
     // Read the uploaded file as text
     reader.readAsText(input);
 });
+
 
 //dynamically filling in year dropdown options
 var yearDropdown = document.getElementById("year");
