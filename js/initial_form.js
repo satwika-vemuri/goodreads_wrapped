@@ -41,22 +41,50 @@ myForm.addEventListener("submit", function (e) {
                 for(let i = 0; i < 12; i++){
                     booksPerMonth[i] = 0;
                 }
+
+                var authors = {};
+                console.log(authors["hi"]);
         
                 data.forEach(function(d) {
                     date = d["Date Read"];
+                    author = d["Author"]
+
                     if(date.substring(0, 4) == selectedYear){
                         let month= +(date.substring(5,7)) - 1;
                         booksPerMonth[month] += 1;
                     }
+                    if(authors[author] == undefined){
+                        authors[author] = 1;
+                    }
+                    else{
+                        authors[author] += 1;
+                    }
                 });
+                
+                // top month processing 
                 let maxMonth = 0;
                 for(let i = 0; i < 12; i++){
                     if(booksPerMonth[i] > booksPerMonth[maxMonth]){
                         maxMonth = i;
                     }
                 }
-
                 topMonth.textContent = "Top Month: " + months[maxMonth];
+
+                // author processing
+
+                let top_author = undefined;
+                for(var a in authors) {
+                    if(top_author == undefined){
+                        top_author = a;
+                    }
+                    else if(authors[a] > authors[top_author]){
+                        top_author = a;
+                    }
+                  
+                }
+                if(authors[top_author] > 1){
+                    topAuthor.textContent = "Top Author: " + top_author;
+                }
     };
     
     // Read the uploaded file as text
