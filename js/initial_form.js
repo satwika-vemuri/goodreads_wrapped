@@ -21,7 +21,15 @@ myForm.addEventListener("submit", function (e) {
         // Here you can analyze the data and create visualizations
         // For example, let's log the data to the console
         const ratings = data.map(d => parseFloat(d["My Rating"]));
-        const averageRating = d3.mean(ratings);
+                const ratings_zeroless = [];
+                for(let i = 0; i < ratings.length; i++)
+                {
+                    if(ratings[i] != 0)
+                    {
+                        ratings_zeroless.unshift(ratings[i]);
+                    }
+                }
+        const averageRating = d3.mean(ratings_zeroless);
         averageRatingElement.textContent = "Average Rating: " + averageRating.toFixed(2);
         console.log(averageRating);
         console.log(selectedYear);
