@@ -36,6 +36,21 @@
 
                 // Now you can use 'data' to create your visualizations
                 // For example, you can use D3.js to create charts, graphs, etc.
+
+                let booksPerMonth = [12]; 
+                let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+                for(let i = 0; i < 12; i++){
+                    booksPerMonth[i] = 0;
+                }
+        
+                data.forEach(function(d) {
+                    date = d["Date Read"];
+                    if(date.substring(0, 4) == selectedYear){
+                        let month= +(date.substring(5,7)) - 1;
+                        booksPerMonth[month] += 1;
+                    }
+                });
+                console.log(booksPerMonth);
             };
     
             // Read the uploaded file as text
