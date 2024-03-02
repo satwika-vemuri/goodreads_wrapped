@@ -1,0 +1,55 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>CSV File Analyzer</title> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.css" /> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js"></script> 
+</head> 
+
+<body>
+    <!-- Create a form to accept CSV file -->
+    <form id="myForm">
+        <input type="file" id="csvFile" accept=".csv" />
+        <br />
+        <input type="submit" value="Submit" />
+    </form>
+    <h1 id="averageRating"></h1>
+    <!-- Include D3.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    
+    <script>
+        // Event listener for form submission
+        const myForm = document.getElementById("myForm");
+        const csvFile = document.getElementById("csvFile");
+        const averageRatingElement = document.getElementById("averageRating"); // Reference to the heading element
+    
+        myForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const input = csvFile.files[0];
+            const reader = new FileReader();
+    
+            // When file reading is done
+            reader.onload = function (e) {
+                const text = e.target.result;
+                // Parse CSV data using D3.js
+                const data = d3.csvParse(text);
+
+                // Here you can analyze the data and create visualizations
+                // For example, let's log the data to the console
+                const ratings = data.map(d => parseFloat(d["My Rating"]));
+                const averageRating = d3.mean(ratings);
+                averageRatingElement.textContent = "Average Rating: " + averageRating.toFixed(2);
+                console.log(averageRating);
+
+                // Now you can use 'data' to create your visualizations
+                // For example, you can use D3.js to create charts, graphs, etc.
+            };
+    
+            // Read the uploaded file as text
+            reader.readAsText(input);
+        });
+    </script>
+
+
+</body>
+</html>
