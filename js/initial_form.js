@@ -5,6 +5,8 @@ const csvFile = document.getElementById("csvFile");
 //h1 averageRating element
 const averageRatingElement = document.getElementById("averageRating"); // Reference to the heading element
 const numBooksElement = document.getElementById("numBooks");
+const longestBookElement = document.getElementById("longestBook");
+const wishListElement = document.getElementById("wishList");
     
 myForm.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -22,14 +24,16 @@ myForm.addEventListener("submit", function (e) {
         // Here you can analyze the data and create visualizations
         // For example, let's log the data to the console
         const ratings = data.map(d => parseFloat(d["My Rating"]));
-                const ratings_zeroless = [];
-                for(let i = 0; i < ratings.length; i++)
-                {
-                    if(ratings[i] != 0)
-                    {
-                        ratings_zeroless.unshift(ratings[i]);
-                    }
-                }
+        const ratings_zeroless = [];
+        let ratingsIdx = 0;
+        data.forEach(function(d) {
+            date = d["Date Read"];
+            if(ratings[ratingsIdx] != 0 && date.substring(0, 4) == selectedYear){
+                ratings_zeroless.unshift(ratings[ratingsIdx]);
+            }
+            ratingsIdx++;
+        });
+
         const averageRating = d3.mean(ratings_zeroless);
         averageRatingElement.textContent = "Average Rating: " + averageRating.toFixed(2);
         console.log(averageRating);
@@ -68,6 +72,47 @@ myForm.addEventListener("submit", function (e) {
                     }
                 });
                 numBooksElement.textContent = "Num Books Read: " + numBooks;
+
+        // print out longest book read
+        let maxPages = 0;
+        let curIdx = 0;
+        let maxIdx = 0;
+        let maxTitle = "";
+        data.forEach(function(d) {
+            numPages = d["Number of Pages"];
+            date = d["Date Read"];
+            if(numPages > maxPages && date.substring(0, 4) == selectedYear){
+                maxIdx = curIdx;
+                maxPages = numPages;
+                maxTitle = d["Title"];
+            }
+            curIdx++;
+        });
+        longestBookElement.textContent = "Longest Book Read: " + maxTitle + " (" + maxPages + " Pages!)";
+        
+        // Wish List Books
+        let booksToRead = [];
+        // let titles = data.map(d => parseFloat(d["Title"]));
+        data.forEach(function(d) {
+            toRead = d["Exclusive Shelf"];
+            title = d["Title"];
+            if(!toRead.localeCompare("to-read")){
+                booksToRead.unshift(title);
+            }
+        });
+        // pick 3 random, unique elements of booksToRead
+        let randIdx1 = Math.floor(Math.random() * booksToRead.length);
+        let randIdx2 = randIdx1;
+        while(randIdx2 == randIdx1)
+        {
+            randIdx2 = Math.floor(Math.random() * booksToRead.length);
+        }
+        let randIdx3 = randIdx2;
+        while(randIdx3 == randIdx1 || randIdx3 == randIdx2)
+        {
+            randIdx3 = Math.floor(Math.random() * booksToRead.length);
+        }
+        wishListElement.textContent = "Books on your wish list: " + booksToRead[randIdx1] + booksToRead[randIdx2] + booksToRead[randIdx3];
     };
     
     // Read the uploaded file as text
