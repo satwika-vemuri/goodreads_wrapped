@@ -46,6 +46,8 @@ myForm.addEventListener("submit", function (e) {
         var authors = {};
         console.log(authors["hi"]);
 
+        let  numBooks = 0;
+
         data.forEach(function(d) {
             date = d["Date Read"];
             author = d["Author"]
@@ -53,6 +55,9 @@ myForm.addEventListener("submit", function (e) {
             if(date.substring(0, 4) == selectedYear){
                 let month= +(date.substring(5,7)) - 1;
                 booksPerMonth[month] += 1;
+            }
+            if(date.substring(0, 4) == selectedYear){
+                numBooks++;
             }
             if(authors[author] == undefined){
                 authors[author] = 1;
@@ -72,13 +77,6 @@ myForm.addEventListener("submit", function (e) {
         topMonth.textContent = "Top Month: " + months[maxMonth];
 
         // now print out total books read
-        let numBooks = 0;
-        data.forEach(function(d) {
-            date = d["Date Read"];
-            if(date.substring(0, 4) == selectedYear){
-                numBooks++;
-            }
-        });
         numBooksElement.textContent = "Num Books Read: " + numBooks;
 
         // author processing
