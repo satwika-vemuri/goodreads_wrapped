@@ -44,13 +44,13 @@ myForm.addEventListener("submit", function (e) {
         }
 
         var authors = {};
-        console.log(authors["hi"]);
-
-        let  numBooks = 0;
+        let numBooks = 0;
+        let popBooks = [];
 
         data.forEach(function(d) {
             date = d["Date Read"];
-            author = d["Author"]
+            author = d["Author"];
+            stars = d["My Rating"];
 
             if(date.substring(0, 4) == selectedYear){
                 let month= +(date.substring(5,7)) - 1;
@@ -59,12 +59,16 @@ myForm.addEventListener("submit", function (e) {
             if(date.substring(0, 4) == selectedYear){
                 numBooks++;
             }
+            if((stars == 5) && (date.substring(0, 4) == selectedYear)){
+                popBooks.push(d["Title"]);
+            }
             if(authors[author] == undefined){
                 authors[author] = 1;
             }
             else{
                 authors[author] += 1;
             }
+
         });
         
         // top month processing 
@@ -76,8 +80,20 @@ myForm.addEventListener("submit", function (e) {
         }
         topMonth.textContent = "Top Month: " + months[maxMonth];
 
+        // top books read
+        console.log(popBooks);
+        let books = "";
+        for(let i = 0; i < popBooks.length; i++){
+            books += popBooks[i];
+            books += "\n";
+        }
+        console.log(books);
+        topBooks.textContent = "Top Books: " + books;
+
         // now print out total books read
         numBooksElement.textContent = "Num Books Read: " + numBooks;
+
+        
 
         // author processing
 
