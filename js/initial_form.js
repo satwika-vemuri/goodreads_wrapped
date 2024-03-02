@@ -5,6 +5,8 @@ const csvFile = document.getElementById("csvFile");
 //h1 averageRating element
 const averageRatingElement = document.getElementById("averageRating"); // Reference to the heading element
 const numBooksElement = document.getElementById("numBooks");
+const longestBookElement = document.getElementById("longestBook");
+const wishListElement = document.getElementById("wishList");
     
 myForm.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -22,14 +24,15 @@ myForm.addEventListener("submit", function (e) {
         //extract all non-zero ratings
         const ratings = data.map(d => parseFloat(d["My Rating"]));
         const ratings_zeroless = [];
-        for(let i = 0; i < ratings.length; i++)
-        {
-            if(ratings[i] != 0)
-            {
-                ratings_zeroless.unshift(ratings[i]);
+        let ratingsIdx = 0;
+        data.forEach(function(d) {
+            date = d["Date Read"];
+            if(ratings[ratingsIdx] != 0 && date.substring(0, 4) == selectedYear){
+                ratings_zeroless.unshift(ratings[ratingsIdx]);
             }
-        }
-        //take average of these ratings
+            ratingsIdx++;
+        });
+
         const averageRating = d3.mean(ratings_zeroless);
         //set this value to html element
         averageRatingElement.textContent = "Average Rating: " + averageRating.toFixed(2);
@@ -46,15 +49,23 @@ myForm.addEventListener("submit", function (e) {
         }
 
         var authors = {};
-        console.log(authors["hi"]);
+        let numBooks = 0;
+        let popBooks = [];
 
         data.forEach(function(d) {
             date = d["Date Read"];
-            author = d["Author"]
+            author = d["Author"];
+            stars = d["My Rating"];
 
             if(date.substring(0, 4) == selectedYear){
                 let month= +(date.substring(5,7)) - 1;
                 booksPerMonth[month] += 1;
+            }
+            if(date.substring(0, 4) == selectedYear){
+                numBooks++;
+            }
+            if((stars == 5) && (date.substring(0, 4) == selectedYear)){
+                popBooks.push(d["Title"]);
             }
             if(authors[author] == undefined){
                 authors[author] = 1;
@@ -62,6 +73,7 @@ myForm.addEventListener("submit", function (e) {
             else{
                 authors[author] += 1;
             }
+
         });
         
         // top month processing 
@@ -73,15 +85,18 @@ myForm.addEventListener("submit", function (e) {
         }
         topMonth.textContent = "Top Month: " + months[maxMonth];
 
+        // top books read
+        let books = "";
+        for(let i = 0; i < popBooks.length; i++){
+            books += popBooks[i];
+            books += "\n";
+        }
+        topBooks.textContent = "Top Books: " + books;
+
         // now print out total books read
-        let numBooks = 0;
-        data.forEach(function(d) {
-            date = d["Date Read"];
-            if(date.substring(0, 4) == selectedYear){
-                numBooks++;
-            }
-        });
         numBooksElement.textContent = "Num Books Read: " + numBooks;
+
+        
 
         // author processing
         let top_author = undefined;
@@ -98,6 +113,47 @@ myForm.addEventListener("submit", function (e) {
             topAuthor.textContent = "Top Author: " + top_author;
         }
 
+
+        // print out longest book read
+        let maxPages = 0;
+        let curIdx = 0;
+        let maxIdx = 0;
+        let maxTitle = "";
+        data.forEach(function(d) {
+            numPages = d["Number of Pages"];
+            date = d["Date Read"];
+            if(numPages > maxPages && date.substring(0, 4) == selectedYear){
+                maxIdx = curIdx;
+                maxPages = numPages;
+                maxTitle = d["Title"];
+            }
+            curIdx++;
+        });
+        longestBookElement.textContent = "Longest Book Read: " + maxTitle + " (" + maxPages + " Pages!)";
+        
+        // Wish List Books
+        let booksToRead = [];
+        // let titles = data.map(d => parseFloat(d["Title"]));
+        data.forEach(function(d) {
+            toRead = d["Exclusive Shelf"];
+            title = d["Title"];
+            if(!toRead.localeCompare("to-read")){
+                booksToRead.unshift(title);
+            }
+        });
+        // pick 3 random, unique elements of booksToRead
+        let randIdx1 = Math.floor(Math.random() * booksToRead.length);
+        let randIdx2 = randIdx1;
+        while(randIdx2 == randIdx1)
+        {
+            randIdx2 = Math.floor(Math.random() * booksToRead.length);
+        }
+        let randIdx3 = randIdx2;
+        while(randIdx3 == randIdx1 || randIdx3 == randIdx2)
+        {
+            randIdx3 = Math.floor(Math.random() * booksToRead.length);
+        }
+        wishListElement.textContent = "Books on your wish list: " + booksToRead[randIdx1] + booksToRead[randIdx2] + booksToRead[randIdx3];
         window.location.href = "display.html?selectedYear=" + selectedYear + "&averageRating=" + averageRating.toFixed(2) + "&topMonth=" + months[maxMonth] + "&numBooks=" + numBooks + "&topAuthor=" + top_author;
 
     };
