@@ -4,6 +4,7 @@ const myForm = document.getElementById("myForm");
 const csvFile = document.getElementById("csvFile");
 //h1 averageRating element
 const averageRatingElement = document.getElementById("averageRating"); // Reference to the heading element
+const numBooksElement = document.getElementById("numBooks");
     
 myForm.addEventListener("submit", function (e) {
     e.preventDefault();
