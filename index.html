@@ -7,16 +7,18 @@
     <link rel="stylesheet" href="styles.css">
 </head> 
 
-<body>
+<body >
     
     <!-- Create a form to accept CSV file and user selected year -->
-    <form id="myForm">
+<div class = "center">
+    <form class = "style2" id="myForm">
         <input type="file" id="csvFile" accept=".csv" />
         <br />
         <label for="year">Choose a year: </label>
         <select name="year" id="year"></select>
         <input type="submit" value="Submit" />
     </form>
+</div>
    <!-- Will show user's average rating average form submission -->
     <h1 id="averageRating"></h1>
     <!-- Include D3.js library -->
