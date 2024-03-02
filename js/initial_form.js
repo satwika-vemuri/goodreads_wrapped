@@ -42,23 +42,60 @@ myForm.addEventListener("submit", function (e) {
         for(let i = 0; i < 12; i++){
             booksPerMonth[i] = 0;
         }
-        //get values of books read for each month in the year
+
+        var authors = {};
+        console.log(authors["hi"]);
+
         data.forEach(function(d) {
-        date = d["Date Read"];
-        if(date.substring(0, 4) == selectedYear){
-            let month= +(date.substring(5,7)) - 1;
-            booksPerMonth[month] += 1;
-        }
+            date = d["Date Read"];
+            author = d["Author"]
+
+            if(date.substring(0, 4) == selectedYear){
+                let month= +(date.substring(5,7)) - 1;
+                booksPerMonth[month] += 1;
+            }
+            if(authors[author] == undefined){
+                authors[author] = 1;
+            }
+            else{
+                authors[author] += 1;
+            }
         });
-        //determine month with max books read
+        
+        // top month processing 
         let maxMonth = 0;
         for(let i = 0; i < 12; i++){
             if(booksPerMonth[i] > booksPerMonth[maxMonth]){
                 maxMonth = i;
             }
         }
-       //set this to value of html element
         topMonth.textContent = "Top Month: " + months[maxMonth];
+
+        // now print out total books read
+        let numBooks = 0;
+        data.forEach(function(d) {
+            date = d["Date Read"];
+            if(date.substring(0, 4) == selectedYear){
+                numBooks++;
+            }
+        });
+        numBooksElement.textContent = "Num Books Read: " + numBooks;
+
+        // author processing
+
+        let top_author = undefined;
+        for(var a in authors) {
+            if(top_author == undefined){
+                top_author = a;
+            }
+            else if(authors[a] > authors[top_author]){
+                top_author = a;
+            }
+          
+        }
+        if(authors[top_author] > 1){
+            topAuthor.textContent = "Top Author: " + top_author;
+        }
 
     };
     
