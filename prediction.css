@@ -127,3 +127,11 @@ select:focus{
     color:#585858;
     font-weight: bold;
 }
+#loupe-image {
+    width: 80px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-left: 10px; /* Adjust the margin as needed */
+    position: absolute;
+    top: 8%;
+    left: 67%;
+}
