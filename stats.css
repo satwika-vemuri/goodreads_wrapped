@@ -126,3 +126,22 @@ select:focus{
     width: 40px; /* Adjust the width as needed */
     margin-left: 10px; /* Add some space between the text and image */
 }
+
+  .info-item {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    margin-bottom: 10px; /* Add some margin between each info-item */
+}
+
+.info-item img {
+    width: 40px; /* Adjust the width as needed */
+    margin-left: 10px; /* Add some space between the text and image */
+}
+
+
+
+  .list {
+    color: rgb(4, 0, 0);
+    font-size:27px;
+    font-family: bradley hand;
+  }

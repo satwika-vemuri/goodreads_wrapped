@@ -28,3 +28,4 @@ function nextPage() {
     console.log("hi");
     window.location.href = "index.html";
 }
+

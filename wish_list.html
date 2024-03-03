@@ -1,30 +1,61 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="stats.css">
+<head>
+    <title>Display Information</title>
+</head>
+<body>
+    <!-- to display the avg rating -->
+
+    <div class = flex-container>
+        <div class = "flex-child center border">
+            <h1>Your Wish List...</h1>
+            <h3 class="main-text">Looking back, it's been a pretty great year of books. But how about looking forward? Here are some of the books you added to your wish list last year. Make yourself a cup of tea, curl up on the couch, and get started!</h3>
+            <label class = "list">1: </label>
+            <label id="heading1" class="list"> </label>
+            <h4 class="break"></h4>
+            <label class="list">2: </label>
+            <label id="heading2" class="list"></label>
+            <h4 class="break"></h4>
+            <label class="list">3: </label>
+            <label id="heading3" class="list"></label>
+            <h4 class="break"></h4>
+        </div>
+        <div class = "flex-child center">
+                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=2998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Book Stack" style="width:380px;height:380px">;
+                <button class="button" onclick="goToAnotherPage()">See your top books!</button>
+        </div>
+        </div>
+    
+    <script src="js/wish_list.js"></script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html> 
 <html> 
 <head> 
     <title>Wish List</title> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.css" /> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js"></script> 
     <link rel="shortcut icon" type="image/x-icon" href="open-book.png" />
-    <link rel="stylesheet" href="styles.css">
-</head> 
+    <link rel="stylesheet" href="stats.css">
+</head>
 
 <body >
 
     <script src="js/wish_list.js">
     </script>
     
-<div class = flex-container>
-    <div class = "flex-child center border">
-        <h1>Your Wish List...</h1>
-        <label id = "wishList1Heading" class="text"></label>
-        <label id = "wishList2Heading" class="text"></label>
-        <label id = "wishList3Heading" class="text"></label>
+    <div class = flex-container>
+        <div class = "flex-child center border">
+            <h1>Your Wish List...</h1>
+            <h4 id = "wishList1Heading" class="main-text">hello</h4>
+            <h4 id = "wishList2Heading" class="main-text"></h4>
+            <h4 id = "wishList3Heading" class="main-text"></h4>
+        </div>
+        <div class = "flex-child center">
+            <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=2998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Book Stack" style="width:380px;height:380px">;
+            <button class="button" onclick="nextPage()">Try our prediction system!</button>
+        </div>
     </div>
-    <div class = "flex-child center">
-        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=2998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Book Stack" style="width:380px;height:380px">;
-        <button class="button">Try our prediction system!</button>
-    </div>
-</div>
-</div>
 </body>
-</html>
+</html> -->

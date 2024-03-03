@@ -30,21 +30,24 @@
         // Function to navigate to another page with parameters
         function goToAnotherPage() {
             // Construct the URL with parameters
+            /*
             var url = "top_books.html";
             url += "?wishList1=" + wishList1;
             url += "&wishList2=" + wishList2;
             url += "&wishList3=" + wishList3;
             url += "&topBook1=" + topBook1;
             url += "&topBook2=" + topBook2;
-            url += "&topBook3=" + topBook3;
+            url += "&topBook3=" + topBook3;*/
             // Navigate to the other page
-            window.location.href = url;
+            // window.location.href = url;
+            window.location.href = "wish_list.html?selectedYear=" + year + "&averageRating=" + averageRating + "&topMonth=" + maxMonth+ "&numBooks=" + numBooks + "&topAuthor=" + topAuthor + "&maxTitle=" + maxTitle + "&maxPages=" + maxPages + "&wishList1=" + wishList1 + "&wishList2=" + wishList2 + "&wishList3=" + wishList3 + "&topBook1=" + topBook1 + "&topBook2=" + topBook2 + "&topBook3=" + topBook3;
+
         }
 
 
         // Display user's data in the headings
         var averageRatingHeading = document.getElementById('averageRatingHeading');
-        averageRatingHeading.textContent = "Average Rating: " + averageRating;
+        averageRatingHeading.textContent += averageRating;
 
         var numBooksHeading = document.getElementById('numBooks');
         numBooksHeading.textContent += numBooks;
