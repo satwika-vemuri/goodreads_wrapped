@@ -145,8 +145,8 @@ myForm.addEventListener("submit", function (e) {
 
         console.log(popBooks[0]);
         console.log(popBooks[1]);
-        
-        window.location.href = "display.html?selectedYear=" + selectedYear + "&averageRating=" + averageRating.toFixed(2) + "&topMonth=" + months[maxMonth] + "&numBooks=" + numBooks + "&topAuthor=" + top_author + "&maxTitle=" + maxTitle + "&maxPages=" + maxPages + "&wishList1=" + booksToRead[randIdx1] + "&wishList2=" + booksToRead[randIdx2] + "&wishList3=" + booksToRead[randIdx3] + "&topBook1=" + popBooks[0] + "&topBook2=" + popBooks[1] + "&topBook3=" + popBooks[2];
+
+        window.location.href = "display.html?selectedYear=" + selectedYear + "&averageRating=" + averageRating.toFixed(2) + "&topMonth=" + months[maxMonth] + "&numBooks=" + numBooks + "&topAuthor=" + top_author + "&maxTitle=" + maxTitle + "&maxPages=" + maxPages + "&wishList1=" + encodeURIComponent(booksToRead[randIdx1]) + "&wishList2=" + encodeURIComponent(booksToRead[randIdx2]) + "&wishList3=" + encodeURIComponent(booksToRead[randIdx3]) + "&topBook1=" + encodeURIComponent(popBooks[0]) + "&topBook2=" + encodeURIComponent(popBooks[1]) + "&topBook3=" + encodeURIComponent(popBooks[2]);
 
     };
     

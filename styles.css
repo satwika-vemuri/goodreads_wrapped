@@ -4,7 +4,7 @@ body {
 .center {
     top: 50%;
     bottom: 50%;
-    transform: translate(0%, 60%);
+    transform: translate(0%, 30%);
     padding: 50px; 
     border-radius: 40px;
     
@@ -86,9 +86,13 @@ select:focus{
     font-weight: normal;
   }
   .top-book-text{
-    color: black;
+    /* color: black;
     font-family: system-ui;
     font-style: italic;
+    font-weight: normal; */
+    color: rgb(4, 0, 0);
+    font-size:23px;
+    font-family: bradley hand;
     font-weight: normal;
   }
 

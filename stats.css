@@ -145,7 +145,7 @@ select:focus{
 
   .list {
     color: rgb(4, 0, 0);
-    font-size:27px;
+    font-size:23px;
     font-family: bradley hand;
   }
 
@@ -159,3 +159,8 @@ select:focus{
     top: 13%;
     left: 50%;
   }
+
+  .heading-container {
+    display: flex;
+    align-items: center;
+}

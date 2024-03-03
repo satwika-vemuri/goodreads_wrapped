@@ -15,12 +15,14 @@
         var topAuthor = getUrlParameter('topAuthor');
         var maxTitle = getUrlParameter('maxTitle');
         var maxPages = getUrlParameter('maxPages');
-        var wishList1 = getUrlParameter('wishList1');
-        var wishList2 = getUrlParameter('wishList2');
-        var wishList3 = getUrlParameter('wishList3');
-        var topBook1 = getUrlParameter('topBook1');
-        var topBook2 = getUrlParameter('topBook2');
-        var topBook3 = getUrlParameter('topBook3');
+
+        var wishList1 = decodeURIComponent(getUrlParameter('wishList1'));
+        var wishList2 = decodeURIComponent(getUrlParameter('wishList2'));
+        var wishList3 = decodeURIComponent(getUrlParameter('wishList3'));
+
+        var topBook1 = decodeURIComponent(getUrlParameter('topBook1'));
+        var topBook2 = decodeURIComponent(getUrlParameter('topBook2'));
+        var topBook3 = decodeURIComponent(getUrlParameter('topBook3'));
 
         //check that this worked by console log
         console.log(topBook1);
@@ -32,12 +34,12 @@
             // Construct the URL with parameters
            
             var url = "top_books.html";
-            url += "?wishList1=" + wishList1;
-            url += "&wishList2=" + wishList2;
-            url += "&wishList3=" + wishList3;
-            url += "&topBook1=" + topBook1;
-            url += "&topBook2=" + topBook2;
-            url += "&topBook3=" + topBook3;
+            url += "?wishList1=" + encodeURIComponent(wishList1);
+            url += "&wishList2=" + encodeURIComponent(wishList2);
+            url += "&wishList3=" + encodeURIComponent(wishList3);
+            url += "&topBook1=" + encodeURIComponent(topBook1);
+            url += "&topBook2=" + encodeURIComponent(topBook2);
+            url += "&topBook3=" + encodeURIComponent(topBook3);
             // Navigate to the other page
             window.location.href = url;
            // window.location.href = "wish_list.html?selectedYear=" + year + "&averageRating=" + averageRating + "&topMonth=" + maxMonth+ "&numBooks=" + numBooks + "&topAuthor=" + topAuthor + "&maxTitle=" + maxTitle + "&maxPages=" + maxPages + "&wishList1=" + wishList1 + "&wishList2=" + wishList2 + "&wishList3=" + wishList3 + "&topBook1=" + topBook1 + "&topBook2=" + topBook2 + "&topBook3=" + topBook3;
