@@ -125,3 +125,9 @@ select:focus{
     font-size:27px;
     font-family: bradley hand;
   }
+
+  #topBooks {
+    position: absolute;
+    top: 90%;
+    left: 30%;
+  }
