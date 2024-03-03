@@ -14,9 +14,11 @@
 <div class = flex-container>
 <div class = "flex-child center border">
     <h1>Welcome to Goodreads Wrapped!</h1>
-    <h4 class="main-text"> Welcome to our prediction system! Given a book's details and your current GoodReads library, we try to predict whether you will like that book!<h4>
+    <h4 class="main-text"> Welcome to our prediction system! Given a book's details and your current GoodReads library, we try to predict whether you will like that book! First, let's look at some factors:<h4>
     <h4 class="main-text" id="rating-txt"></h4>
+    <h4 class="main-text" id="author-txt"></h4>
     <h4 class="main-text" id="language"></h4>
+    <h4 class="main-text" id="overall"></h4>
 
 </div>
 <div class = "flex-child center">
@@ -29,15 +31,13 @@
         <h4>Author: </h4>
         <input type="text" id="author" value="Katherine Applegate"><br><br>
         <h4>ISBN: </h4>
-        <input type="text" id="isbn" value="9780007455331"><br><br>
+        <input type="text" id="isbn" value="0061992275"><br><br>
         <h4>Rating: </h4>
         <input type="text" id="rating" value="4.27"><br><br>
         <input class="style2" type="file" id="csvFile" accept=".csv"/>
         <button type="submit" id="submit" class = "button">Submit</button>
         <br>
-        
-        <label class="small-text">First let's look at some cool stats...</label>
-    </form>
+            </form>
 </div>
 </div>
 
