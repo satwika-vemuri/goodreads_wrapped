@@ -152,6 +152,7 @@ myForm.addEventListener("submit", function (e) {
             randIdx3 = Math.floor(Math.random() * booksToRead.length);
         }
         wishListElement.textContent = "Books on your wish list: " + booksToRead[randIdx1] + booksToRead[randIdx2] + booksToRead[randIdx3];
+        // console.log(popBooks[0]);
 
         window.location.href = "display.html?selectedYear=" + selectedYear + "&averageRating=" + averageRating.toFixed(2) + "&topMonth=" + months[maxMonth] + "&numBooks=" + numBooks + "&topAuthor=" + top_author + "&maxTitle=" + maxTitle + "&maxPages=" + maxPages + "&wishList1=" + booksToRead[randIdx1] + "&wishList2=" + booksToRead[randIdx2] + "&wishList3=" + booksToRead[randIdx3] + "&topBook1=" + popBooks[0] + "&topBook2=" + popBooks[1] + "&topBook3=" + popBooks[2];
 

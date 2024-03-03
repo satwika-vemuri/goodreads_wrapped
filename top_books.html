@@ -1,32 +1,21 @@
 <!DOCTYPE html> 
 <html> 
 <head> 
-    <title>Wish List</title> 
+    <title>Top Books</title> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.css" /> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js"></script> 
     <link rel="stylesheet" href="styles.css">
 </head> 
-
 <body >
-    
 <div class = flex-container>
 <div class = "flex-child center border">
-    <h1>Your Wish List...</h1>
+    <h1>Some of Your Top Books: </h1>
     <h4 class="main-text">1: ____</h4>
 </div>
 <div class = "flex-child center">
-    <form class="style1" id="myForm">
-        <br />
-        <label for="year" class="year">Choose a year:</label>
-        <select name="year" id="year"></select>
-        <input class="style2" type="file" id="csvFile" accept=".csv"/>
-        <button type="submit" id="submit" class = "button">Submit</button>
-        <br>
-        <label class="small-text">First let's look at some cool stats...</label>
-    </form>
+    
 </div>
 </div>
-
     <script>
         // get url parameter
         function getUrlParameter(name) {
@@ -36,13 +25,14 @@
         return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
         };
 
-        var wishList1 = getUrlParameter('wishList1');
-        var wishList2 = getUrlParameter('wishList2');
-        var wishList3 = getUrlParameter('wishList3');
+        var wishList1 = getUrlParameter('topBook1');
+        var wishList2 = getUrlParameter('topBook2');
+        var wishList3 = getUrlParameter('topBook3');
 
         console.log(wishList1);
         console.log(wishList2);
         console.log(wishList3);
+
     </script>
 </body>
 </html>
