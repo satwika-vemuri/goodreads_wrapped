@@ -106,7 +106,7 @@ myForm.addEventListener("submit", function (e) {
             overall.textContent = "Taking all these factors into consideration, we feel like you might not like this book. But hey, maybe you should give something new a try!";
         }
         else if((count == 1) || (count == 2)){
-            overall.textContent = "Taking all these factors into consideration, we feel like you MIGHT like this book. It definitely has a few things going for it, but it all depends on what you value in literature";
+            overall.textContent = "Taking all these factors into consideration, we feel like you MIGHT like this book. It definitely has a few things going for it, but it all depends on what you value in literature.";
         }
         else{
             overall.textContent = "OMG! New Favorite Book Alert! We really feel like you'd love this book. And who knows, maybe it'll show up on your top books next time around."
