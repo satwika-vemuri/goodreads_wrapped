@@ -4,7 +4,7 @@ body {
 .center {
     top: 50%;
     bottom: 50%;
-    transform: translate(0%, 80%);
+    transform: translate(0%, 70%);
     padding: 50px; 
     border-radius: 40px;
     
@@ -84,6 +84,11 @@ select:focus{
     color: black;
     font-family: system-ui;
     font-weight: normal;
+  }
+
+  .small-text{
+    color: white;
+    font-size: 15px;
   }
 
 
