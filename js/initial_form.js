@@ -35,7 +35,6 @@ myForm.addEventListener("submit", function (e) {
 
         const averageRating = d3.mean(ratings_zeroless);
         //set this value to html element
-        averageRatingElement.textContent = "Average Rating: " + averageRating.toFixed(2);
         console.log(averageRating);
 
        // Redirect to display.html after processing, including user metrics
@@ -83,7 +82,6 @@ myForm.addEventListener("submit", function (e) {
                 maxMonth = i;
             }
         }
-        topMonth.textContent = "Top Month: " + months[maxMonth];
 
         // top books read
         let books = "";
@@ -91,10 +89,7 @@ myForm.addEventListener("submit", function (e) {
             books += popBooks[i];
             books += "\n";
         }
-        topBooks.textContent = "Top Books: " + books;
 
-        // now print out total books read
-        numBooksElement.textContent = "Num Books Read: " + numBooks;
 
         
         // author processing
@@ -107,9 +102,6 @@ myForm.addEventListener("submit", function (e) {
                 top_author = a;
             }
           
-        }
-        if(authors[top_author] > 1){
-            topAuthor.textContent = "Top Author: " + top_author;
         }
 
         // print out longest book read
@@ -127,7 +119,6 @@ myForm.addEventListener("submit", function (e) {
             }
             curIdx++;
         });
-        longestBookElement.textContent = "Longest Book Read: " + maxTitle + " (" + maxPages + " Pages!)";
         
         // Wish List Books
         let booksToRead = [];
@@ -151,8 +142,7 @@ myForm.addEventListener("submit", function (e) {
         {
             randIdx3 = Math.floor(Math.random() * booksToRead.length);
         }
-        wishListElement.textContent = "Books on your wish list: " + booksToRead[randIdx1] + booksToRead[randIdx2] + booksToRead[randIdx3];
-        // console.log(popBooks[0]);
+
 
         window.location.href = "display.html?selectedYear=" + selectedYear + "&averageRating=" + averageRating.toFixed(2) + "&topMonth=" + months[maxMonth] + "&numBooks=" + numBooks + "&topAuthor=" + top_author + "&maxTitle=" + maxTitle + "&maxPages=" + maxPages + "&wishList1=" + booksToRead[randIdx1] + "&wishList2=" + booksToRead[randIdx2] + "&wishList3=" + booksToRead[randIdx3] + "&topBook1=" + popBooks[0] + "&topBook2=" + popBooks[1] + "&topBook3=" + popBooks[2];
 
