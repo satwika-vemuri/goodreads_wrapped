@@ -7,6 +7,7 @@ function getUrlParameter(name) {
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
     };
 
+    // Get data values from url parameters
     var wishList1 = getUrlParameter('wishList1');
     var wishList2 = getUrlParameter('wishList2');
     var wishList3 = getUrlParameter('wishList3');
