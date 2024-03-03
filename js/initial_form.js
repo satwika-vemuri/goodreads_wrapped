@@ -97,7 +97,6 @@ myForm.addEventListener("submit", function (e) {
         numBooksElement.textContent = "Num Books Read: " + numBooks;
 
         
-
         // author processing
         let top_author = undefined;
         for(var a in authors) {
@@ -112,7 +111,6 @@ myForm.addEventListener("submit", function (e) {
         if(authors[top_author] > 1){
             topAuthor.textContent = "Top Author: " + top_author;
         }
-
 
         // print out longest book read
         let maxPages = 0;
@@ -154,7 +152,8 @@ myForm.addEventListener("submit", function (e) {
             randIdx3 = Math.floor(Math.random() * booksToRead.length);
         }
         wishListElement.textContent = "Books on your wish list: " + booksToRead[randIdx1] + booksToRead[randIdx2] + booksToRead[randIdx3];
-        window.location.href = "display.html?selectedYear=" + selectedYear + "&averageRating=" + averageRating.toFixed(2) + "&topMonth=" + months[maxMonth] + "&numBooks=" + numBooks + "&topAuthor=" + top_author;
+
+        window.location.href = "display.html?selectedYear=" + selectedYear + "&averageRating=" + averageRating.toFixed(2) + "&topMonth=" + months[maxMonth] + "&numBooks=" + numBooks + "&topAuthor=" + top_author + "&maxTitle=" + maxTitle + "&maxPages=" + maxPages + "&wishList1=" + booksToRead[randIdx1] + "&wishList2=" + booksToRead[randIdx2] + "&wishList3=" + booksToRead[randIdx3] + "&topBook1=" + popBooks[0] + "&topBook2=" + popBooks[1] + "&topBook3=" + popBooks[2];
 
     };
     
