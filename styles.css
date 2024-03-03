@@ -85,6 +85,12 @@ select:focus{
     font-family: system-ui;
     font-weight: normal;
   }
+  .top-book-text{
+    color: black;
+    font-family: system-ui;
+    font-style: italic;
+    font-weight: normal;
+  }
 
   .small-text{
     color: white;
@@ -96,4 +102,14 @@ select:focus{
     color: white
   }
 
+ .heading-container {
+    display: flex;
+    align-items: center;
+}
+
+.heading-image {
+    width: 100px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-left: 10px; /* Adjust the margin as needed */
+}
   

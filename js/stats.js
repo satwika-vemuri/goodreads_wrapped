@@ -58,3 +58,78 @@
         var longestBookHeading = document.getElementById('longestBook');
        longestBookHeading.textContent += maxTitle + ", " + maxPages + " pages!";
 
+       // Function to set image based on month
+function setImageForMonth(month) {
+    const imgElement = document.getElementById('topMonthImage');
+    let imageSrc = '';
+
+    // Determine image source based on month
+    switch (month) {
+        case 'January':
+        case 'February':
+        case 'December':
+            imageSrc = 'img/snow-flake.png';
+            break;
+        case 'March':
+        case 'April':
+        case 'May':
+            imageSrc = 'img/flowers.png';
+            break;
+        case 'June':
+        case 'July':
+        case 'August':
+            imageSrc = 'img/sunny.png';
+            break;
+        case 'September':
+        case 'October':
+        case 'November':
+            imageSrc = 'img/autumn.png';
+            break;
+        default:
+            // Default image if month doesn't match any case
+            imageSrc = 'img/sunny.png';
+    }
+
+    // Set image source
+    imgElement.src = imageSrc;
+}
+
+setImageForMonth(maxMonth);
+
+function setImageForRating(rating) {
+    const imgElement = document.getElementById('avgRatingImg');
+    let imageSrc = '';
+
+    // Determine image source based on month
+    switch (rating) {
+        case 1:
+            imageSrc = 'img/two.png';
+            break;
+        case 2:
+            imageSrc = 'img/two.png';
+            break;
+        case 3:
+            imageSrc = 'img/stars.png';
+            break;
+        case 4:
+            imageSrc = 'img/ratings.png';
+            break;
+        case 5:
+            imageSrc = 'img/rating.png'
+        default:
+            // Default image if rating doesn't match any case
+            imageSrc = 'img/rating.png';
+    }
+
+    // Set image source
+    imgElement.src = imageSrc;
+}
+
+var avg = parseFloat(averageRating);
+var roundedAvg = Math.round(avg);
+
+setImageForRating(roundedAvg);
+
+
+
+

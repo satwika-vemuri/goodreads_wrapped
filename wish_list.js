@@ -19,7 +19,6 @@ function getUrlParameter(name) {
     var wishList3Heading = document.getElementById('wishList3Heading');
     wishList3Heading.textContent = "3: " + wishList3;
 
-
     console.log(wishList1);
     console.log(wishList2);
     console.log(wishList3);
