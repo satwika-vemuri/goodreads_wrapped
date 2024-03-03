@@ -9,6 +9,15 @@ body {
     border-radius: 40px;
     
 }
+
+.center2 {
+  top: 50%;
+  bottom: 50%;
+  transform: translate(0%, 40%);
+  padding: 50px; 
+  border-radius: 40px;
+  
+}
 .year {
     font-size: 20px;
     padding-right: 5px;
@@ -149,10 +158,10 @@ select:focus{
     font-family: bradley hand;
   }
 
-  #topBooks {
+  #topBooksButton {
     position: absolute;
     top: 90%;
-    left: 30%;
+    left: 23%;
   }
   #mug_img {
     position: absolute;
