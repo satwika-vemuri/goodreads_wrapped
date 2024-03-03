@@ -65,6 +65,11 @@ select:focus{
     border-radius: 10px;
     font-weight: bold;
   }
+
+  .button:hover {
+    background-color: #86B6F6;
+    color: white;
+  }
   
   input::file-selector-button {
     background-color: #585858;

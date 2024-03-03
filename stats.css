@@ -173,3 +173,7 @@ select:focus{
     display: flex;
     align-items: center;
 }
+.button:hover {
+  background-color: #86B6F6;
+  color: white;
+}

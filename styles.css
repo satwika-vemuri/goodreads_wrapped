@@ -123,3 +123,7 @@ select:focus{
     margin-left: 10px; /* Adjust the margin as needed */
 }
   
+.button:hover {
+    background-color: #86B6F6;
+    color: white;
+  }
