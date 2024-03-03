@@ -10,26 +10,17 @@
 <body >
     
 <div class = flex-container>
-<div class = "flex-child center border">
-    <h1>Your Wish List...</h1>
-    <h4 class="main-text">1: ____</h4>
-</div>
-<div class = "flex-child center">
-    <form class="style1" id="myForm">
-        <br />
-        <label for="year" class="year">Choose a year:</label>
-        <select name="year" id="year"></select>
-        <input class="style2" type="file" id="csvFile" accept=".csv"/>
-        <button type="submit" id="submit" class = "button">Submit</button>
-        <br>
-        <label class="small-text">First let's look at some cool stats...</label>
-    </form>
+    <div class = "flex-child center border">
+        <h1>Your Wish List...</h1>
+        <label id = "wishList1Heading" class="text"></label>
+        <label id = "wishList2Heading" class="text"></label>
+        <label id = "wishList3Heading" class="text"></label>
+    </div>
+    <div class = "flex-child center">
+        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=2998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Book Stack" style="width:380px;height:380px">;
+    </div>
 </div>
 </div>
-
-    <script src="js/wish_list.js">
-    </script>
-
-
+    <script src="js/wish_list.js"></script>
 </body>
 </html>
