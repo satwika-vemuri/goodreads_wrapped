@@ -158,10 +158,10 @@ select:focus{
     font-family: bradley hand;
   }
 
-  #topBooks {
+  #topBooksButton {
     position: absolute;
     top: 90%;
-    left: 30%;
+    left: 23%;
   }
   #mug_img {
     position: absolute;
