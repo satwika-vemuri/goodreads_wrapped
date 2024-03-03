@@ -115,3 +115,13 @@ select:focus{
     border-radius: 10px;
     font-weight: bold;
   }
+
+  img {
+  border-radius: 20%;
+  }
+
+  .list {
+    color: rgb(4, 0, 0);
+    font-size:27px;
+    font-family: bradley hand;
+  }
