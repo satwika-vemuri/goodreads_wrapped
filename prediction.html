@@ -1,1 +1,49 @@
-hi
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>GoodReads Wrapped</title> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.css" /> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js"></script> 
+    <link rel="stylesheet" href="styles.css">
+</head> 
+
+<body >
+    
+    <!-- Create a form to accept CSV file and user selected year -->
+
+<div class = flex-container>
+<div class = "flex-child center border">
+    <h1>Welcome to Goodreads Wrapped!</h1>
+    <h4 class="main-text"> Welcome to our prediction system! Given a book's details and your current GoodReads library, we try to predict whether you will like that book!<h4>
+    <h4 class="main-text" id="rating-txt"></h4>
+    <h4 class="main-text" id="language"></h4>
+
+</div>
+<div class = "flex-child center">
+    <form class="style1" id="myForm">
+        
+        <br />
+        <h4>Title: </h4>
+        <label for="year" class="year">Choose a year:</label>
+        <input type="text" id="title" value="The One and Only Ivan"><br><br>
+        <h4>Author: </h4>
+        <input type="text" id="author" value="Katherine Applegate"><br><br>
+        <h4>ISBN: </h4>
+        <input type="text" id="isbn" value="9780007455331"><br><br>
+        <h4>Rating: </h4>
+        <input type="text" id="rating" value="4.27"><br><br>
+        <input class="style2" type="file" id="csvFile" accept=".csv"/>
+        <button type="submit" id="submit" class = "button">Submit</button>
+        <br>
+        
+        <label class="small-text">First let's look at some cool stats...</label>
+    </form>
+</div>
+</div>
+
+    <script form src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script form type="text/javascript" src="js/prediction.js"></script>
+
+
+</body>
+</html>
