@@ -2,15 +2,37 @@ body {
     background-color: #86B6F6;
 }
 .center {
-    border: 5px solid #EEF5FF;
-    border-radius: 40px;
-    position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    bottom: 50%;
+    transform: translate(0%, 80%);
     padding: 50px; 
-    background-color: #B4D4FF;
+    border-radius: 40px;
+    
+}
+.year {
+    font-size: 20px;
+    padding-right: 5px;
+    
   }
+.flex-container {
+    display: flex;
+    margin-right: 150px;
+    margin-left: 150px;
+}
+.border{
+    border-radius: 40px;
+    background-color: #B4D4FF;
+}
+
+.flex-child {
+    flex: 1;
+}  
+
+.flex-child:first-child {
+    margin-right: 30px;
+    flex: 200%;
+}  
+
 .style1{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 1.8rem;
@@ -30,3 +52,43 @@ select:focus{
     outline:none;
 }
 
+.button {
+    background-color: #585858;
+    padding: 10px;
+    border: none;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+  
+  input::file-selector-button {
+    background-color: #585858;
+    padding: 10px;
+    border: none;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+  .main-text{
+    color: black;
+    font-family: system-ui;
+    font-weight: normal;
+  }
+
+
+  input[type='file'] {
+    color: white
+  }
+
+  
