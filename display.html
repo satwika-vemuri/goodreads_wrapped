@@ -9,21 +9,26 @@
 
     <div class = flex-container>
         <div class = "flex-child center border">
-            <h1>Let's Find Out More About You...</h1>
-            <h4 class="main-text">Based on the year you selected and your current goodreads library, we've been able to gather some information. Let's not discount the pure satisfaction you might get when you see how many books you read this year, or the longest book you've read. After you've patted yourself on the back, take a closer look at this information. Maybe you want to start reading more books from your favorite author. Or maybe you want to scope out longer reads. Whatever floats your boat.</h2>
+            <h1>More About You...</h1>
+            <h4 class="main-text">Based on the year you selected and your current GoodReads library, we've been able to gather some information. Let's not discount the pure satisfaction you might get when you see how many books you read this year, or the longest book you've read. After you've patted yourself on the back for a job well done, take a closer look at this information. Maybe you want to start reading more books by your favorite author. Or maybe you want to scope out longer reads (or not, maybe you're a short story kind of person). Whatever floats your boat.</h2>
         </div>
         <div class = "flex-child center">
-                <label id="averageRatingHeading">Average Rating: </label>
-                <br>
-                <label id="numBooks">Number of Books Read this Year: </label>
-                <br>
-                <label id="topMonth">Top Reading Month: </label>
-                <br>
-                <label id="topAuthor">Top Author this Year: </label>
-                <br>
-                <label id="longestBook">Longest Book Read: </label>
-                <br>
-                <button onclick="goToAnotherPage()">See your top books!</button>
+                <label class = "title">Average Rating: </label>
+                <label id="averageRatingHeading" class="text"> </label>
+                <h4 class="break"></h4>
+                <label class="title">Number of Books Read this Year: </label>
+                <label id="numBooks" class="text"></label>
+                <h4 class="break"></h4>
+                <label class="title">Top Reading Month: </label>
+                <label id="topMonth" class="text"></label>
+                <h4 class="break"></h4>
+                <label class="title">Top Author this Year: </label>
+                <label id="topAuthor" class="text"></label>
+                <h4 class="break"></h4>
+                <label class="title">Longest Book Read: </label>
+                <label id="longestBook" class="text"></label>
+                <h4 class="break"></h4>
+                <button class="button" onclick="goToAnotherPage()">See your top books!</button>
         </div>
         </div>
     

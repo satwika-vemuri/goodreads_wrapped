@@ -90,9 +90,28 @@ select:focus{
     font-size: 15px;
   }
 
-
-  input[type='file'] {
-    color: white
+  .title{
+    color: #585858;
+    font-size:25px;
+    font-weight: bold;
   }
 
-  
+  .text{
+    color: white;
+    font-size:25px;
+  }
+
+
+  .button {
+    background-color: #585858;
+    padding: 10px;
+    border: none;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+  }
