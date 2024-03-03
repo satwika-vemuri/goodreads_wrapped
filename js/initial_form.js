@@ -158,7 +158,7 @@ myForm.addEventListener("submit", function (e) {
 //dynamically filling in year dropdown options
 var yearDropdown = document.getElementById("year");
 var currYear = new Date().getFullYear();
-for (var year = 2007; year <= currYear; year++){
+for (var year = currYear; year >= 2007; year--){
     var option = document.createElement("option");
     option.value = year;
     option.text = year;
