@@ -23,11 +23,14 @@
         var topBook3 = getUrlParameter('topBook3');
 
         //check that this worked by console log
+        console.log(topBook1);
+        console.log(topBook2);
+        console.log(topBook3);
 
         // Function to navigate to another page with parameters
         function goToAnotherPage() {
             // Construct the URL with parameters
-            var url = "wish_list.html";
+            var url = "top_books.html";
             url += "?wishList1=" + wishList1;
             url += "&wishList2=" + wishList2;
             url += "&wishList3=" + wishList3;
