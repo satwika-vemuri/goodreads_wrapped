@@ -14,3 +14,9 @@ function getUrlParameter(name) {
     console.log(wishList1);
     console.log(wishList2);
     console.log(wishList3);
+
+function nextPage() {
+    // Construct the URL with parameters
+    console.log("hi");
+    window.location.href = "prediction.html";
+}
