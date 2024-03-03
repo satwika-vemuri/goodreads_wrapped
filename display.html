@@ -1,33 +1,50 @@
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="stats.css">
+<link rel="shortcut icon" type="image/x-icon" href="open-book.png" />
 <head>
     <title>Display Information</title>
 </head>
 <body>
-    <!-- to display the avg rating -->
-
+    
     <div class = flex-container>
         <div class = "flex-child center border">
             <h1>More About You...</h1>
             <h4 class="main-text">Based on the year you selected and your current GoodReads library, we've been able to gather some information. Let's not discount the pure satisfaction you might get when you see how many books you read this year, or the longest book you've read. After you've patted yourself on the back for a job well done, take a closer look at this information. Maybe you want to start reading more books by your favorite author. Or maybe you want to scope out longer reads (or not, maybe you're a short story kind of person). Whatever floats your boat.</h2>
         </div>
         <div class = "flex-child center">
+            <div class="info-item">
                 <label class = "title">Average Rating: </label>
                 <label id="averageRatingHeading" class="text"> </label>
+                <img id="avgRatingImg" src="" alt="Rating Stars Image">
                 <h4 class="break"></h4>
+            </div>
+            <div class="info-item">
                 <label class="title">Number of Books Read this Year: </label>
                 <label id="numBooks" class="text"></label>
+                <img src="img/books.png" alt="Book Stack Image">
                 <h4 class="break"></h4>
+            </div>
+            <div class="info-item">
                 <label class="title">Top Reading Month: </label>
                 <label id="topMonth" class="text"></label>
+                <img id="topMonthImage" src="" alt="Top Reading Month Image">
                 <h4 class="break"></h4>
+            </div>
+
+            <div class="info-item">
                 <label class="title">Top Author this Year: </label>
                 <label id="topAuthor" class="text"></label>
+                <img src="img/edit.png" alt="Pencil Image">
                 <h4 class="break"></h4>
+            </div>
+            <div class="info-item">
                 <label class="title">Longest Book Read: </label>
                 <label id="longestBook" class="text"></label>
+                <img src="img/reading-book.png" alt="Book Reading Image">
                 <h4 class="break"></h4>
+            </div>
+
                 <button class="button" onclick="goToAnotherPage()">See your top books!</button>
         </div>
         </div>
