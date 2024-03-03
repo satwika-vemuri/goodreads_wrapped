@@ -26,5 +26,5 @@ function getUrlParameter(name) {
 function nextPage() {
     // Construct the URL with parameters
     console.log("hi");
-    window.location.href = "prediction.html";
+    window.location.href = "index.html";
 }
