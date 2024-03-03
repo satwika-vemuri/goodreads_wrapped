@@ -68,10 +68,6 @@
 
     
 
-// function nextPage() {
-//     // Construct the URL with parameters
-//     console.log("hi");
-//     var url = "index.html";
-//     // Navigate to the other page
-//     window.location.href = url;
-// }
+function nextPage() {
+    window.location.href = "prediction.html";
+}

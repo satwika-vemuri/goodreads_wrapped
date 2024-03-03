@@ -3,7 +3,9 @@
 const myForm = document.getElementById("myForm");
 const csvFile = document.getElementById("csvFile");
 const r = document.getElementById("rating-txt");
+const a = document.getElementById("author-txt");
 const language = document.getElementById("language");
+const overall = document.getElementById("overall");
 //h1 averageRating element
     
 myForm.addEventListener("submit", function (e) {
@@ -44,7 +46,7 @@ myForm.addEventListener("submit", function (e) {
             my_rating = +(d["My Rating"]);
             avg_rating = +(d["Average Rating"]);
             isb_n = d['ISBN'];
-            a = d['Author'];
+            auth = d['Author'];
 
             if(my_rating != 0){
                 total_ratings++;
@@ -53,7 +55,7 @@ myForm.addEventListener("submit", function (e) {
             if(((isbn != "") && (isb_n.substring(0,1) != '0') && (isb_n.substring(0,1) != '1'))){
                 onlyEnglish = false;
             }
-            if(author == a){
+            if(author == auth){
                 authorSeen = true;
             }
         });
@@ -61,6 +63,8 @@ myForm.addEventListener("submit", function (e) {
         let std_dev = Math.abs(avg_rating-my_rating);
         let lower_bound = rating-std_dev;
         let upper_bound = rating+std_dev;
+        let count = 0;
+
         if(lower_bound < 0){
             lower_bound = 0;
         }
@@ -68,17 +72,44 @@ myForm.addEventListener("submit", function (e) {
             upper_bound = 5;
         }
 
-        if((rating >= lower_bound) && (rating <= upper_bound)){
-            r.textContent = "We think this book is right up your ally! We came to this conclusion by looking at the books in your library! As per how well your ratings coincide with the general GoodReads ratings, we feel like this book might be something you'll thoroughly enjoy.";
+        if((4 >= lower_bound) && (4 <= upper_bound)){
+            r.textContent = "By looking at the books in your library as per how well your ratings coincide with the general GoodReads ratings, we feel like this book might be something you'll rate pretty highly (if you were to make it through).";
+            count++;
+        }
+        else{
+            r.textContent = "By looking at the books in your library as per how well your ratings coincide with the general GoodReads ratings, we feel like this book might be something you won't rate super highly. In fact, we think you'd give it less than 4 stars.";
         }
 
         if(isbn.substring(0,1) > 1){
             if(onlyEnglish){
-                language.textContent = "We wanted to point out that your library only has English books. The book you entered isn't English though, so it might not be a great fit for you since you don't seem to have much experience in foreign language books";
+                language.textContent = "We wanted to point out that your library only has English books. The book you entered isn't English though, so it might not be a great fit for you since you don't seem to have much experience in foreign language books.";
             }
             else{
-                language.textContent = "We wanted to point out that this is not an English book. However, your library does have other books that are not American/English based books, so you already have some experience with this!"
+                count++;
+                language.textContent = "We wanted to point out that this is not an English book. However, your library does have other books that are not American/English based books, so you already have some experience with this!";
             }
+        }
+        else{
+            count++;
+            language.textContent = "We also wanted to point out that this book is in English, which means you'll most likely understand it.";
+        }
+
+        if(authorSeen){
+            count++;
+            a.textContent = "By the way, you've read books by this author before! Nice to see a familiar face (or in this case, a familiar voice) right?";
+        }
+        else{
+            a.textContent = "By the way, you haven't seen this author before. But maybe you should give something new a shot.";
+        }
+
+        if(count == 0){
+            overall.textContent = "Taking all these factors into consideration, we feel like you might not like this book. But hey, maybe you should give something new a try!";
+        }
+        else if((count == 1) || (count == 2)){
+            overall.textContent = "Taking all these factors into consideration, we feel like you MIGHT like this book. It definitely has a few things going for it, but it all depends on what you value in literature.";
+        }
+        else{
+            overall.textContent = "OMG! New Favorite Book Alert! We really feel like you'd love this book. And who knows, maybe it'll show up on your top books next time around."
         }
 
         console.log(rating+std_dev);
